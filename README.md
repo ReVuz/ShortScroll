@@ -123,3 +123,61 @@ The script waits 3 seconds before it begins monitoring, giving you time to switc
 ## Disclaimer
 
 This is a learning automation project. UI changes by YouTube may break detection at any time.
+
+---
+
+## Browser Extension
+
+The `extension/` directory contains a browser extension that provides the same auto-scroll behaviour as the Python script, but runs directly inside the browser — no Python environment required.
+
+The extension injects a content script into YouTube Shorts pages, listens for the native `ended` event on the video element, and performs a smooth scroll to advance to the next Short.  A popup lets you enable or disable auto-scrolling and configure a delay between video end and scroll.
+
+---
+
+## Extension Installation
+
+### Chrome / Brave / Edge
+
+1. Open your browser and navigate to the extensions page:
+   - Chrome: `chrome://extensions`
+   - Brave: `brave://extensions`
+   - Edge: `edge://extensions`
+2. Enable **Developer mode** (toggle in the top-right corner).
+3. Click **Load unpacked**.
+4. Select the `extension/` folder from this repository.
+5. The ShortScroll extension will appear in your extensions list.
+
+### Firefox
+
+1. Open Firefox and navigate to `about:debugging`.
+2. Click **This Firefox** in the left sidebar.
+3. Click **Load Temporary Add-on...**.
+4. Navigate to the `extension/` folder and select the `manifest.json` file.
+5. The extension will remain loaded until Firefox is closed.
+
+For a persistent installation on Firefox, the extension would need to be packaged and signed through [addons.mozilla.org](https://addons.mozilla.org).
+
+---
+
+## Extension Configuration
+
+Click the ShortScroll icon in the browser toolbar to open the popup.
+
+| Control             | Description                                                       |
+|---------------------|-------------------------------------------------------------------|
+| Auto-scroll toggle  | Enable or disable automatic scrolling when a Short ends           |
+| Scroll delay (s)    | Seconds to wait after the video ends before scrolling (0 to 5)   |
+
+Settings are saved automatically when you change either control.
+
+---
+
+## Supported Browsers
+
+| Browser | Engine   | Manifest V3 | Notes                                      |
+|---------|----------|-------------|--------------------------------------------|
+| Chrome  | Chromium | Yes         | Full support                               |
+| Brave   | Chromium | Yes         | Full support                               |
+| Edge    | Chromium | Yes         | Full support                               |
+| Opera   | Chromium | Yes         | Load via developer mode in Opera settings  |
+| Firefox | Gecko    | Yes (109+)  | Load as temporary add-on via about:debugging |
