@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShortScroll</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>ShortScroll</h1>
+  </header>
+
+  <main>
+    <div class="setting-row">
+      <label for="toggle-enabled" class="setting-label">Auto-scroll</label>
+      <label class="switch">
+        <input type="checkbox" id="toggle-enabled" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <label for="input-delay" class="setting-label">Scroll delay (seconds)</label>
+      <input
+        type="number"
+        id="input-delay"
+        min="0"
+        max="5"
+        step="0.1"
+        value="0"
+        class="delay-input"
+      />
+    </div>
+
+    <p id="status-msg" class="status-msg" aria-live="polite"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
